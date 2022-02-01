@@ -1,3 +1,3 @@
-import AddQuickTodo from './AddQuickTodo'
+import AddQuickTodo from "./AddQuickTodo";
 
 export default AddQuickTodo;
