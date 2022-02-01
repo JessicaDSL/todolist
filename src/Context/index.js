@@ -1,7 +1,17 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 export const TodoContext = createContext({});
 
 export const TodoProvider = ({ children }) => {
-  return <TodoContext.Provider value={{}}>{children}</TodoContext.Provider>;
+  const [list, setList] = useState([{}]);
+
+  function handleAddItem(task) {
+    setList([...list, task]);
+  }
+
+  return (
+    <TodoContext.Provider value={{ handleAddItem }}>
+      {children}
+    </TodoContext.Provider>
+  );
 };
