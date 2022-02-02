@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import { TodoContext } from "../../Context";
 
+import { Form } from "./styles";
+
 const AddQuickTodo = () => {
   const [task, setTask] = useState([""]);
-
   const { handleAddItem } = useContext(TodoContext);
 
   function getTask(e) {
@@ -12,7 +13,7 @@ const AddQuickTodo = () => {
   }
 
   return (
-    <form>
+    <Form>
       <input
         type="text"
         placeholder="Adicione uma nova tarefa"
@@ -26,9 +27,9 @@ const AddQuickTodo = () => {
           setTask("");
         }}
       >
-        ADD
+        OK!
       </button>
-    </form>
+    </Form>
   );
 };
 
