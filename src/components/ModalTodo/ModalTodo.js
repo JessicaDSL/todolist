@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
+import TodoForm from "../TodoForm";
+import { Container } from "./styles";
 
-const ModalTodo = () => {
+const ModalTodo = ({ item }) => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <Container>
+      <TodoForm item={item} />
+    </Container>
+  );
+};
 
-export default ModalTodo
+export default ModalTodo;
