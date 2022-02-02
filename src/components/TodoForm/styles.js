@@ -1,5 +1,43 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Container = styled.div`
-  
+export const Form = styled.form`
+  border-radius: 4px;
+  h4 {
+    color: #303030;
+  }
+`;
+
+export const Title = styled.div`
+  display: flex;
+  p {
+    max-height: 4rem;
+    overflow-y: scroll;
+    border: ${({ state }) => (state ? "1px solid #c8cacc" : "none")};
+    border-radius: 4px 0px 0 4px;
+    width: 82%;
+    padding: 0 0 0 0.4rem;
+    font-size: 5vw;
+    font-weight: 500;
+    color: #777879;
+  }
+  button {
+    border-radius: ${({ state }) => (state ? "0px 4px 4px 0" : "none")};
+    border: 1px solid #fd7294;
+    background: #fd7294;
+    color: #fff;
+    padding: 0 0.6rem;
+    height: 2rem;
+  }
+`;
+
+export const DescriptionTask = styled.div`
+  margin: 0.8rem 0;
+  p {
+    padding: 0.1rem;
+    border: 1px solid #c8cacc;
+    border-radius: 4px;
+    min-height: 4rem;
+    max-height: 7rem;
+    overflow-y: scroll;
+  }
 `;
