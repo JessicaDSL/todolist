@@ -9,19 +9,13 @@ export const TodoProvider = ({ children }) => {
     setList([...list, { work: task }]);
   }
 
-  function handleEdit(item) {
-    console.log(item);
-  }
-
   function handleDelete(item) {
     const newList = list.filter((l) => l !== item);
     setList(newList);
   }
 
   return (
-    <TodoContext.Provider
-      value={{ handleAddItem, handleEdit, handleDelete, list }}
-    >
+    <TodoContext.Provider value={{ handleAddItem, handleDelete, list }}>
       {children}
     </TodoContext.Provider>
   );
