@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { TodoContext } from "../../Context";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
@@ -7,9 +7,15 @@ import ModalTodo from "../ModalTodo";
 const TodoItem = ({ item }) => {
   const { handleDelete } = useContext(TodoContext);
 
+  const [state, setState] = useState(false);
+  const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    state ? setActive("Completed!") : setActive("Active");
+  }, [state]);
 
   const style = {
     position: "absolute",
@@ -25,10 +31,11 @@ const TodoItem = ({ item }) => {
 
   return (
     <div>
+      <input type="checkbox" onClick={() => setState(true)} />
+      {active}
       <h2>
         {item.work} <span>seta</span>
       </h2>
-      <p>{item.description}</p>
       <button onClick={handleOpen}>Editar</button>
       <button onClick={() => handleDelete(item)}>Remover</button>
       <Modal
@@ -39,7 +46,7 @@ const TodoItem = ({ item }) => {
       >
         <Box sx={style}>
           <ModalTodo item={item} handleClose={handleClose} />
-          <button onClick={handleClose}>Close Modal</button>
+          <button onClick={handleClose}>Salvar as alterações</button>
         </Box>
       </Modal>
     </div>
