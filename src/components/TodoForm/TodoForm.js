@@ -11,13 +11,12 @@ const TodoForm = ({ item }) => {
         >
           {item.work}
         </h1>
-        <p>{item.description}</p>
-
-        <textarea
-          rows="5"
-          cols="33"
-          onChange={(e) => (item["description"] = e.target.value)}
-        />
+        <p
+          contentEditable="true"
+          onKeyDown={(e) => (item["description"] = e.target.innerText)}
+        >
+          {item.description}
+        </p>
       </form>
     </Container>
   );
