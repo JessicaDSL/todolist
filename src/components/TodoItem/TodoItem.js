@@ -4,7 +4,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import ModalTodo from "../ModalTodo";
-import { Container, Span, TaskStatus, Button } from "./styles";
+import { Container, Span, TaskStatus, ButtonModal } from "./styles";
 
 const TodoItem = ({ item }) => {
   const { handleDelete } = useContext(TodoContext);
@@ -23,7 +23,7 @@ const TodoItem = ({ item }) => {
 
   const style = {
     position: "absolute",
-    top: "55%",
+    top: "35%",
     left: "50%",
     padding: "0",
     transform: "translate(-50%, -50%)",
@@ -35,16 +35,14 @@ const TodoItem = ({ item }) => {
     m: 0,
   };
 
-  console.log(item.description);
   return (
     <Container state={state}>
       <TaskStatus>
         <input type="checkbox" onClick={() => setState(true)} />
-        <span></span>
       </TaskStatus>
 
       <p>
-        {item.work}{" "}
+        {item.mainTask}{" "}
         <Span hasDescription={hasDescription} onClick={handleOpen}>
           <ArrowForwardIcon />
         </Span>
@@ -67,7 +65,7 @@ const TodoItem = ({ item }) => {
       >
         <Box sx={style}>
           <ModalTodo item={item} />
-          <Button onClick={handleClose}>Salvar as alterações</Button>
+          <ButtonModal onClick={handleClose}>Salvar as alterações</ButtonModal>
         </Box>
       </Modal>
     </Container>
@@ -75,21 +73,3 @@ const TodoItem = ({ item }) => {
 };
 
 export default TodoItem;
-
-/*/*
-if(newTitle === '' &&  message  === '') {
-  console.log("favor preencher alguma coisa ae mano")
-} else if(newTitle === '' &&  message  !== ''){
-  setList([{ work: item.work, descriptionTask: message }])
-} else if(newTitle !== '' &&  message  === '') {
-  setList([{ work: newTitle, descriptionTask: '' }])
-} else {
-  setList([{ work: newTitle, descriptionTask: message }])
-}*/
-
-/*newTitle === ""
-      ? setList([...list, { work: item.work, descriptionTask: message }])
-    : setList([...list, { work: newTitle, descriptionTask: "" }]);
-    message === ""
-      ? setList([...list, { work: newTitle, descriptionTask: "" }])
-      : setList([...list, { work: newTitle, descriptionTask: message }]);*/
