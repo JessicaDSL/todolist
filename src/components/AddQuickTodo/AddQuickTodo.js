@@ -5,15 +5,13 @@ import { toast } from "react-toastify";
 import { Form } from "./styles";
 
 const AddQuickTodo = () => {
-  const [task, setTask] = useState([""]);
+  const [task, setTask] = useState("");
   const { handleAddItem } = useContext(TodoContext);
 
   function getTask(e) {
     const newText = e.target.value;
     setTask(newText);
   }
-
-  
 
   return (
     <Form>
@@ -26,13 +24,11 @@ const AddQuickTodo = () => {
       <button
         onClick={(e) => {
           e.preventDefault();
-          if (task.length <= 0) {
-            toast.error("Favor digiyar uma tarefa!", {
-              theme: "dark",
-            });
-            return
-          }
-          handleAddItem(task);
+          task.length <= 0
+            ? toast.error("Favor digitar uma tarefa!", {
+                theme: "dark",
+              })
+            : handleAddItem(task);
           setTask("");
         }}
       >
