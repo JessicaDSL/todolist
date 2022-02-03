@@ -11,12 +11,14 @@ export const Title = styled.div`
   display: flex;
   p {
     max-height: 4rem;
+    display: flex;
+    align-items: center;
     overflow-y: scroll;
     border: ${({ state }) => (state ? "1px solid #c8cacc" : "none")};
     border-radius: 4px 0px 0 4px;
     width: 82%;
     padding: 0 0 0 0.4rem;
-    font-size: 5vw;
+    font-size: medium;
     font-weight: 500;
     color: #777879;
   }
