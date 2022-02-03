@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Form = styled.form`
   background: #fff;
@@ -36,4 +37,30 @@ export const Form = styled.form`
     font-weight: 600;
     cursor: pointer;
   }
+  ${media.between("medium", "large")`
+    width: 60%;
+  `}
+  ${media.greaterThan("large")`
+  width: 50%;
+  padding: 1.5rem;
+  input {
+    height: 3rem;
+    font-size: large;
+    &::placeholder {
+      font-size: large;
+    }
+  }
+  button {
+    height: 3rem;
+    width: 20%;
+    font-size: large;
+    border-radius: 0 6px 6px 0;
+    border: 1px solid #fe4370;
+    border-left: none;
+    background: #fe4370;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  `}
 `;
