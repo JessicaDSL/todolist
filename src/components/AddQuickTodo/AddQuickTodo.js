@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { TodoContext } from "../../Context";
+import { toast } from "react-toastify";
 
 import { Form } from "./styles";
 
@@ -12,6 +13,8 @@ const AddQuickTodo = () => {
     setTask(newText);
   }
 
+  
+
   return (
     <Form>
       <input
@@ -23,11 +26,17 @@ const AddQuickTodo = () => {
       <button
         onClick={(e) => {
           e.preventDefault();
+          if (task.length <= 0) {
+            toast.error("Favor digiyar uma tarefa!", {
+              theme: "dark",
+            });
+            return
+          }
           handleAddItem(task);
           setTask("");
         }}
       >
-        OK!
+        ADD!
       </button>
     </Form>
   );
