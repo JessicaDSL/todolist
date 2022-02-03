@@ -6,11 +6,11 @@ export const TodoProvider = ({ children }) => {
   const [list, setList] = useState([]);
 
   function handleAddItem(task) {
-    setList([...list, { work: task }]);
+    setList([...list, { mainTask: task }]);
   }
 
   function handleDelete(item) {
-    const newList = list.filter((l) => l !== item);
+    const newList = list.filter((task) => task !== item);
     setList(newList);
   }
 
