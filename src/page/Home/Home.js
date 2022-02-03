@@ -2,26 +2,28 @@ import React, { useContext } from "react";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 
 import AddQuickTodo from "../../components/AddQuickTodo";
+import Header from "../../components/Header";
 import TodoList from "../../components/TodoList/TodoList";
 import { TodoContext } from "../../Context";
-import { Container, List } from "./styles";
+import { Background, Container} from "./styles";
 
 const Home = () => {
   const { list } = useContext(TodoContext);
 
   return (
-    <Container>
+    <Background>
+      <Header />
       <AddQuickTodo />
-      <List>
-        {list.length <= 0 ? (
+      {list.length <= 0 ? (
+        <Container>
           <h4>
             Ainda não possui itens na lista <SentimentVeryDissatisfiedIcon />
           </h4>
-        ) : (
-          <TodoList />
-        )}
-      </List>
-    </Container>
+        </Container>
+      ) : (
+        <TodoList />
+      )}
+    </Background>
   );
 };
 
