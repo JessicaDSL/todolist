@@ -1,28 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Title, DescriptionTask } from "./styles";
 
 const TodoForm = ({ item }) => {
-  const [state, setState] = useState(false);
-
   return (
     <Form>
       <h4>Title:</h4>
-      <Title state={state}>
+      <Title>
         <p
-          contentEditable={state}
-          onKeyDown={(e) => (item.work = e.target.innerText)}
+          contentEditable="true"
+          onKeyDown={(e) => (item.title = e.target.innerText)}
         >
-          {item.work}
+          {item.title}
         </p>
-        <button type="button" onClick={() => setState(true)}>
-          EDIT
-        </button>
       </Title>
       <DescriptionTask>
         <h4>Descrição:</h4>
         <p
           contentEditable="true"
-          onKeyDown={(e) => (item["description"] = e.target.innerText)}
+          onKeyDown={(e) => item.description = e.target.innerText}
         >
           {item.description}
         </p>
