@@ -3,6 +3,7 @@ import media from "styled-media-query";
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   background: ${({ state }) => (state ? "#fd7294" : "none")};
   justify-content: space-between;
   align-items: center;
@@ -114,3 +115,56 @@ export const ButtonModal = styled.div`
   align-items: center;
   `}
 `;
+
+export const EditTask = styled.div`
+  display: ${({state}) => state ? 'flex' : 'none'};
+  width: 100%;
+  justify-content: space-between;
+`
+
+export const MainTask = styled.div`
+  display: flex;
+  width: 100%;
+`
+
+export const ModalOverlay = styled.div`
+background-color: rgba(0, 0, 0, 0.342);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    display: ${({open}) => open ? 'flex' : 'none'};
+`
+
+export const ModalHeader = styled.div`
+background-color: rgba(0, 0, 0, 0.041);
+    padding: 1rem;
+`
+
+export const ModalContent = styled.div`
+padding: 0.5rem 1rem;
+    flex: 1;
+`
+
+export const ModalFooter = styled.div`
+padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.041);
+`
+
+export const Modal = styled.div`
+display: ${({open}) => open ? 'flex' : 'none'};
+margin: 1rem;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    min-height: 500px;
+    background-color: white;
+    border-radius: 11px;
+    flex-direction: column;
+    overflow: hidden;
+`

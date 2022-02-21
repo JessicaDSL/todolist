@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 export const Form = styled.form`
   border-radius: 4px;
+  width: 250px;
+  height: 170px;
+  background: white;
+  color: white;
+  z-index: 10;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
   h4 {
     color: #303030;
   }
@@ -14,7 +21,7 @@ export const Title = styled.div`
     display: flex;
     align-items: center;
     overflow-y: scroll;
-    border: ${({ state }) => (state ? "1px solid #c8cacc" : "none")};
+    border: 1px solid #c8cacc;
     border-radius: 4px 0px 0 4px;
     width: 82%;
     padding: 0 0 0 0.4rem;
