@@ -1,16 +1,15 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { TodoContext } from "../../Context";
-import { toast } from "react-toastify";
 
 import { Form } from "./styles";
 
 const AddQuickTodo = () => {
-  const [task, setTask] = useState("");
-  const { handleAddItem } = useContext(TodoContext);
+  const [taskTitle, setTaskTitle] = useState("");
+  const { handleAddTask } = useContext(TodoContext);
 
   function getTask(e) {
     const newText = e.target.value;
-    setTask(newText);
+    setTaskTitle(newText);
   }
 
   return (
@@ -19,17 +18,13 @@ const AddQuickTodo = () => {
         type="text"
         placeholder="Adicione uma nova tarefa"
         onChange={getTask}
-        value={task}
+        value={taskTitle}
       />
       <button
         onClick={(e) => {
           e.preventDefault();
-          task.length <= 0
-            ? toast.error("Favor digitar uma tarefa!", {
-                theme: "dark",
-              })
-            : handleAddItem(task);
-          setTask("");
+          handleAddTask(taskTitle);
+          setTaskTitle("");
         }}
       >
         ADD!
