@@ -8,13 +8,14 @@ import { TodoContext } from "../../Context";
 import { Background, Container} from "./styles";
 
 const Home = () => {
-  const { list } = useContext(TodoContext);
+  const { tasks } = useContext(TodoContext);
 
   return (
     <Background>
       <Header />
+      
       <AddQuickTodo />
-      {list.length <= 0 ? (
+      {tasks.length <= 0 ? (
         <Container>
           <h4>
             Ainda não possui itens na lista <SentimentVeryDissatisfiedIcon />
