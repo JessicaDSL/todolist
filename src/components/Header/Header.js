@@ -1,14 +1,14 @@
 import React from "react";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
-import { Container } from "./styles";
+import { Container, Title } from "./styles";
 
 const Header = () => {
   return (
     <Container>
-      <p>
-        <h1>Todo List</h1>
-      </p>
+      <Title>
+        Todo List
+      </Title>
       <p>
         <GitHubIcon />
       </p>
