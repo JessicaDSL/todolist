@@ -1,11 +1,19 @@
 import React from "react";
 import TodoForm from "../TodoForm";
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
-const ModalTodo = ({ item }) => {
+const ModalTodo = ({id="modal", onClose=() => {}, item }) => {
+
+  const handleOutSideClick = (e) => {
+    if(e.target.id === id) onClose();
+  }
+
   return (
-    <Container>
-      <TodoForm item={item} />
+    <Container id={id} onClick={handleOutSideClick}>
+      <Content >
+        <button onClick={onClose}>Close</button>
+        <TodoForm item={item}/>
+      </Content>
     </Container>
   );
 };
