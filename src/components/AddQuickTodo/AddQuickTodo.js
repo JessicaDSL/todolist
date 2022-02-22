@@ -1,34 +1,29 @@
 import React, { useState, useContext } from "react";
 import { TodoContext } from "../../Context";
 
-import { Form } from "./styles";
+import { Form, Input, Button } from "./styles";
 
 const AddQuickTodo = () => {
-  const [taskTitle, setTaskTitle] = useState("");
+  const [task, setTask] = useState("");
   const { handleAddTask } = useContext(TodoContext);
-
-  function getTask(e) {
-    const newText = e.target.value;
-    setTaskTitle(newText);
-  }
 
   return (
     <Form>
-      <input
+      <Input
         type="text"
-        placeholder="Adicione uma nova tarefa"
-        onChange={getTask}
-        value={taskTitle}
+        placeholder="Add a new task..."
+        onChange={(e) => setTask(e.target.value)}
+        value={task}
       />
-      <button
+      <Button
         onClick={(e) => {
           e.preventDefault();
-          handleAddTask(taskTitle);
-          setTaskTitle("");
+          handleAddTask(task);
+          setTask("");
         }}
       >
         ADD!
-      </button>
+      </Button>
     </Form>
   );
 };
