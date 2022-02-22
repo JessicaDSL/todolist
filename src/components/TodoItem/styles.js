@@ -4,167 +4,95 @@ import media from "styled-media-query";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background: ${({ state }) => (state ? "#fd7294" : "none")};
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 0.5rem 0;
-  border-radius: 6px;
-  padding: 0.5rem 0.2rem;
-  border-bottom: 1px solid #e7e9ec;
-  word-wrap: break-word;
-  p {
+  margin: 0.8rem 0;
+  padding: 0 0 1rem 0;
+  border-bottom: 1px solid #cecece;
+  &:last-child {
+    border: none;
+  }
+  ${media.greaterThan("large")`
+  padding: 1rem;
+  `}
+`;
+
+export const DescriptionTask = styled.div`
+  display: ${({ openDescriptionBox }) =>
+    openDescriptionBox ? "flex" : "none"};
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0rem 0;
+  div{
     display: flex;
-    flex-grow: 1;
-    padding: 0 0 0 0.4rem;
-    font-size: medium;
-    font-weight: 500;
-    color: ${({ state }) => (state ? "#fff" : "#777879")};
+  }
+  span {
+    font-size: small;
   }
   button {
     background: #fd7294;
     border: none;
-    border-radius: 6px;
-    margin: 0 0 0 0.2rem;
-    padding: 0 0.4rem;
+    border-radius: 4px;
     color: #fff;
-    height: 2.2rem;
-    font-weight: 600;
-    cursor: pointer;
+    padding: .5rem .5rem;
+    margin: 0 0 0 .2rem;
   }
-  ${media.greaterThan("large")`
+`;
+
+export const Task = styled.div`
   display: flex;
-  padding: 1rem;
-  p {
-    display:flex;
-    align-items: center;
-    padding: 0 0 0 0.8rem;
-    font-size: x-large;
-  }
-  button {
-    margin: 0 0 0 0.2rem;
-    padding: 0 2rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+`;
+
+export const Button = styled.button`
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #fd7294;
+  height: 3rem;
+  padding: 1rem 0;
+  font-weight: 600;
+  ${media.greaterThan("large")`
     height: 3rem;
     font-size: large;
-  }
   `}
 `;
 
-export const TaskStatus = styled.label`
+export const CheckStatus = styled.div`
   display: flex;
+  max-height: 200px;
+  overflow-y: auto;
+  max-width: 85%;
+  justify-content: flex-start;
   align-items: center;
-  input {
-    all: unset;
-    border: 1px solid #777879;
-    width: 1rem;
-    height: 1rem;
-    background: #fff;
-    border-radius: 3px;
-    display: inline-block;
-    &:checked {
-      width: 1rem;
-      height: 1rem;
-      background: #63c132;
-    }
-  }
-  ${media.greaterThan("large")`
-  input {
-    width: 1.4rem;
-    height: 1.4rem;
-    &:checked {
-      width: 1.4rem;
-      height: 1.4rem;
-    }
-  }
-  `}
+  word-wrap: break-word;
+  flex-wrap: wrap;
+  color: #fc72b2;
+  font-weight: 600;
+  font-size: medium;
 `;
 
-export const Span = styled.span`
-  display: ${({ hasDescription }) => (hasDescription ? "flex" : "none")};
-  align-items: center;
-  margin: 0 0 0 0.5rem;
-  svg {
-    font-size: x-large;
-    color: #80e748;
-  }
-  ${media.greaterThan("large")`
-  margin: 0 0 0 1rem;
-  svg {
-    font-size: xx-large;
-  }
-  `}
-`;
-
-export const ButtonModal = styled.div`
-  background: #fe4370;
-  border-radius: 4px;
-  height: 2.2rem;
-  color: #fff;
-  font-weight: 500;
+export const BtnCheck = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
-  ${media.greaterThan("large")`
-  background: #fe4370;
-  border-radius: 4px;
-  height: 2.2rem;
-  color: #fff;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  `}
-`;
-
-export const EditTask = styled.div`
-  display: ${({state}) => state ? 'flex' : 'none'};
-  width: 100%;
-  justify-content: space-between;
-`
-
-export const MainTask = styled.div`
-  display: flex;
-  width: 100%;
-`
-
-export const ModalOverlay = styled.div`
-background-color: rgba(0, 0, 0, 0.342);
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+  button {
+    font-size: x-small;
+    background: none;
+    border: none;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    overflow-y: auto;
-    display: ${({open}) => open ? 'flex' : 'none'};
-`
-
-export const ModalHeader = styled.div`
-background-color: rgba(0, 0, 0, 0.041);
-    padding: 1rem;
-`
-
-export const ModalContent = styled.div`
-padding: 0.5rem 1rem;
-    flex: 1;
-`
-
-export const ModalFooter = styled.div`
-padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.041);
-`
-
-export const Modal = styled.div`
-display: ${({open}) => open ? 'flex' : 'none'};
-margin: 1rem;
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    min-height: 500px;
-    background-color: white;
-    border-radius: 11px;
-    flex-direction: column;
-    overflow: hidden;
-`
+    color: #fd7294;
+    svg {
+      font-size: medium;
+    }
+  }
+`;

@@ -1,39 +1,45 @@
 import React, { useState, useContext } from "react";
 import { TodoContext } from "../../Context";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import ModalTodo from "../ModalTodo";
 import {
   Container,
-  MainTask,
-  TaskStatus,
-  EditTask,
+  Task,
+  DescriptionTask,
+  CheckStatus,
+  Button,
+  BtnCheck,
 } from "./styles";
 
-const TodoItem = ({ item }) => {
-  const { handleDeleteTask } = useContext(TodoContext);
+const TodoItem = ({ task }) => {
+  const { handleDeleteTask, openModal, isModalVisible } =
+    useContext(TodoContext);
 
-  const [isModalVisible, setIsModalVisible] = useState(false)
-  const [state, setState] = useState(false);
+  const [openDescriptionBox, setOpenDescriptionBox] = useState(false);
 
   return (
     <Container>
-      <MainTask>
-        <TaskStatus>
-          <input type="checkbox" />
-        </TaskStatus>
-        <p>{item.title}</p>
-        <button onClick={() => (state ? setState(false) : setState(true))}>
+      <Task>
+        <CheckStatus>{task.title}</CheckStatus>
+        <Button
+          onClick={() =>
+            openDescriptionBox
+              ? setOpenDescriptionBox(false)
+              : setOpenDescriptionBox(true)
+          }
+        >
           <ArrowForwardIosIcon />
-        </button>
-      </MainTask>
-      <EditTask state={state}>
-        <span>Adicione uma descrição</span>
+        </Button>
+      </Task>
+      <DescriptionTask openDescriptionBox={openDescriptionBox}>
+        <span>Add a description...</span>
         <div>
-          <button onClick={()=>setIsModalVisible(true)}>EDIT</button>
-          <button onClick={()=>handleDeleteTask(item.id)}>DELETE</button>
+          <button onClick={() => openModal()}>EDIT</button>
+          <button onClick={() => handleDeleteTask(task.id)} style={{backgroundColor: '#fe4370'}}>DELETE</button>
         </div>
-      </EditTask>
-      {isModalVisible && <ModalTodo onClose={() => setIsModalVisible(false)} item={item} />}
+      </DescriptionTask>
+      {isModalVisible && <ModalTodo task={task} />}
     </Container>
   );
 };
