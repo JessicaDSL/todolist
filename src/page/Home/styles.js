@@ -11,18 +11,20 @@ export const Background = styled.div`
 
 export const Container = styled.div`
   background: #fff;
-  width: 96%;
+  width: 88%;
   border-radius: 0 0 8px 8px;
-  h4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
     border-radius: 0 0 8px 8px;
-    padding: 0 1rem;
     background: #fcfbfb;
-    width: 100%;
+    width: 96%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #a3a0a2;
-    font-size: medium;
+    font-size: smaller;
     font-weight: 400;
     padding: 1.1rem 0;
     svg {
@@ -31,12 +33,12 @@ export const Container = styled.div`
   }
   ${media.between("medium", "large")`
     width: 60%;
+    font-size: x-large;
+    padding: 1.2rem 0;
   `}
   ${media.greaterThan("large")`
   width: 50%;
-  h4 {
-    font-size: large;
-    padding: 2rem 0;
-  }
+  font-size: x-large;
+    padding: 1.2rem 0;
   `}
 `;
