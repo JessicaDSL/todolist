@@ -1,17 +1,19 @@
 import React from "react";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
-import { Container, Title } from "./styles";
+import { Container, Link } from "./styles";
 
 const Header = () => {
   return (
     <Container>
-      <Title>
-        Todo List
-      </Title>
-      <p>
+      Todo List
+      <Link
+        href="https://github.com/JessicaDSL/todolist"
+        target="_blank"
+        rel="noreferrer"
+      >
         <GitHubIcon />
-      </p>
+      </Link>
     </Container>
   );
 };
