@@ -2,9 +2,10 @@ import styled from "styled-components";
 import media from "styled-media-query";
 
 export const Container = styled.div`
-  background-color: #fff;
   padding: 1rem;
-  width: 96%;
+  background: #fff;
+  width: 88%;
+  margin: 0 0 8rem 0;
   border-radius: 0 0 8px 8px;
   ${media.between("medium", "large")`
     width: 60%;

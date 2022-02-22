@@ -8,8 +8,8 @@ const TodoList = () => {
 
   return (
     <Container>
-      {tasks.map((item) => (
-        <TodoItem item={item} />
+      {tasks.map((task, key) => (
+        <TodoItem task={task} key={key} />
       ))}
     </Container>
   );
