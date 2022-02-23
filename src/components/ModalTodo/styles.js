@@ -30,17 +30,3 @@ export const Button = styled.div`
   }
 `;
 
-export const ButtonSave = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0 1rem 0;
-  button {
-    background: #fe4370;
-    border-radius: 6px;
-    border: none;
-    padding: 1rem 1.5rem;
-    color: #fff;
-    font-size: smaller;
-  }
-`;
