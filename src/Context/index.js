@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 import { v4 as uuidv4 } from "uuid";
@@ -9,11 +9,11 @@ export const TodoProvider = ({ children }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   function openModal() {
-    setIsModalVisible(true)
+    setIsModalVisible(true);
   }
-  
+
   function closeModal() {
-    setIsModalVisible(false)
+    setIsModalVisible(false);
   }
 
   function handleAddTask(taskTitle) {
@@ -30,7 +30,16 @@ export const TodoProvider = ({ children }) => {
   }
 
   return (
-    <TodoContext.Provider value={{ handleAddTask, handleDeleteTask, closeModal, openModal, tasks, isModalVisible }}>
+    <TodoContext.Provider
+      value={{
+        handleAddTask,
+        handleDeleteTask,
+        closeModal,
+        openModal,
+        tasks,
+        isModalVisible,
+      }}
+    >
       {children}
     </TodoContext.Provider>
   );
