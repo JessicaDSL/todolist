@@ -18,7 +18,7 @@ export const Container = styled.div`
   justify-content: center;
   span {
     border-radius: 0 0 8px 8px;
-    background: #fcfbfb;
+    background: #f6f6f6;
     width: 96%;
     display: flex;
     align-items: center;
