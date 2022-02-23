@@ -7,8 +7,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 0.8rem 0;
-  padding: 0 0 1rem 0;
+  margin: 0rem 0;
   border-bottom: 1px solid #cecece;
   &:last-child {
     border: none;
@@ -24,7 +23,8 @@ export const DescriptionTask = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin: 0rem 0;
+  padding: 0rem 0;
+  margin: .7rem 0 .9rem 0;
   div{
     display: flex;
   }
@@ -46,7 +46,6 @@ export const Task = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 3rem;
 `;
 
 export const Button = styled.button`
@@ -58,41 +57,30 @@ export const Button = styled.button`
   color: #fd7294;
   height: 3rem;
   padding: 1rem 0;
+  margin: 0 0 0rem 0;
   font-weight: 600;
+  svg {
+    font-size: x-large;
+  }
   ${media.greaterThan("large")`
     height: 3rem;
     font-size: large;
   `}
 `;
 
-export const CheckStatus = styled.div`
+export const TitleTask = styled.textarea`
   display: flex;
   max-height: 200px;
+  margin: .8rem 0 0 0;
   overflow-y: auto;
-  max-width: 85%;
   justify-content: flex-start;
   align-items: center;
   word-wrap: break-word;
   flex-wrap: wrap;
-  color: #fc72b2;
-  font-weight: 600;
+  color: #fe4370;
+  font-weight: 500;
   font-size: medium;
+  border: none;
+  font-family: "Montserrat Alternates", sans-serif;
 `;
 
-export const BtnCheck = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  button {
-    font-size: x-small;
-    background: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    color: #fd7294;
-    svg {
-      font-size: medium;
-    }
-  }
-`;
