@@ -18,7 +18,7 @@ const ModalTodo = ({id="modal", task }) => {
       <Content >
         <Button onClick={() => closeModal()}><CancelIcon/></Button>
         <TodoForm task={task}/>
-        <ButtonSave onClick={() => closeModal()}><button>Save Changes!</button></ButtonSave>
+        
       </Content>
     </Container>
   );
