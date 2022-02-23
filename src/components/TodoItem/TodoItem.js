@@ -1,27 +1,24 @@
 import React, { useState, useContext } from "react";
 import { TodoContext } from "../../Context";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import ModalTodo from "../ModalTodo";
 import {
   Container,
   Task,
   DescriptionTask,
-  CheckStatus,
-  Button,
-  BtnCheck,
+  TitleTask,
+  Button
 } from "./styles";
 
 const TodoItem = ({ task }) => {
   const { handleDeleteTask, openModal, isModalVisible } =
     useContext(TodoContext);
-
   const [openDescriptionBox, setOpenDescriptionBox] = useState(false);
 
   return (
     <Container>
       <Task>
-        <CheckStatus>{task.title}</CheckStatus>
+        <TitleTask>{task.title}</TitleTask>
         <Button
           onClick={() =>
             openDescriptionBox
