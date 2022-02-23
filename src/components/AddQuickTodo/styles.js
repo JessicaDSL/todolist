@@ -8,7 +8,7 @@ export const Form = styled.form`
   z-index: 1;
   display: flex;
   border-radius: 8px 8px 0 0;
-  border-bottom: 1px solid #dadde3;
+  border-bottom: 1px solid white;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.01);
   -webkit-box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.01);
   -moz-box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.01);
