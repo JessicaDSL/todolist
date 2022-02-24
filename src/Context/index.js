@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import { toast } from "react-toastify";
 
 import { v4 as uuidv4 } from "uuid";
@@ -16,13 +16,13 @@ export const TodoProvider = ({ children }) => {
     setIsModalVisible(false);
   }
 
-  function handleAddTask(taskTitle) {
+  function handleAddTask(title) {
     const id = uuidv4();
-    taskTitle.length === 0
+    title.length === 0
       ? toast.error("Please enter a task!", {
           theme: "dark",
         })
-      : setTasks([...tasks, { id: id, title: taskTitle }]);
+      : setTasks([...tasks, { id, title }]);
   }
 
   function handleDeleteTask(id) {
