@@ -1,24 +1,20 @@
 import React, { useState, useContext } from "react";
 import { TodoContext } from "../../Context";
+import { TodoModalContext } from "../../Context/TodoModalProvider";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import ModalTodo from "../ModalTodo";
-import {
-  Container,
-  Task,
-  DescriptionTask,
-  TitleTask,
-  Button
-} from "./styles";
+import { Container, Task, DescriptionTask, TitleTask, Button } from "./styles";
 
 const TodoItem = ({ task }) => {
-  const { handleDeleteTask, openModal, isModalVisible } =
-    useContext(TodoContext);
+  const { handleDeleteTask } = useContext(TodoContext);
+  const { openModal, selectedTasks } = useContext(TodoModalContext);
   const [openDescriptionBox, setOpenDescriptionBox] = useState(false);
 
   return (
     <Container>
       <Task>
-        <TitleTask>{task.title}</TitleTask>
+        <TitleTask>
+          {selectedTasks === undefined ? task.title : selectedTasks.title}
+        </TitleTask>
         <Button
           onClick={() =>
             openDescriptionBox
@@ -32,11 +28,21 @@ const TodoItem = ({ task }) => {
       <DescriptionTask openDescriptionBox={openDescriptionBox}>
         <span>Add a description...</span>
         <div>
-          <button onClick={() => openModal()}>EDIT</button>
-          <button onClick={() => handleDeleteTask(task.id)} style={{backgroundColor: '#fe4370'}}>DELETE</button>
+          <button
+            onClick={() => {
+              openModal(task);
+            }}
+          >
+            EDIT
+          </button>
+          <button
+            onClick={() => handleDeleteTask(task.id)}
+            style={{ backgroundColor: "#fe4370" }}
+          >
+            DELETE
+          </button>
         </div>
       </DescriptionTask>
-      {isModalVisible && <ModalTodo task={task} />}
     </Container>
   );
 };
