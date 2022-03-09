@@ -1,20 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { TodoContext } from "../../Context";
 import { TodoModalContext } from "../../Context/TodoModalProvider";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { Container, Task, DescriptionTask, TitleTask, Button } from "./styles";
 
 const TodoItem = ({ task }) => {
-  const { handleDeleteTask } = useContext(TodoContext);
-  const { openModal, selectedTasks } = useContext(TodoModalContext);
-  const [openDescriptionBox, setOpenDescriptionBox] = useState(false);
+  const { handleDeleteTask, tasks } = useContext(TodoContext);
+  const { openModal, selectedTasks, setState, state } =
+    useContext(TodoModalContext);
 
+  const [openDescriptionBox, setOpenDescriptionBox] = useState(false);
   return (
     <Container>
       <Task>
-        <TitleTask>
-          {selectedTasks === undefined ? task.title : selectedTasks.title}
-        </TitleTask>
+          {task.title}
         <Button
           onClick={() =>
             openDescriptionBox
