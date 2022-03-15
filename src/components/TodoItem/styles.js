@@ -15,7 +15,7 @@ export const Container = styled.div`
     border: none;
   }
   ${media.greaterThan("large")`
-  padding: 2rem;
+  padding: 1.5rem 2rem 2rem 2rem;
   `}
 `;
 
