@@ -3,10 +3,10 @@ import media from "styled-media-query";
 
 export const Form = styled.form`
   background: #fff;
-  width: 88%;
   padding: .8rem;
   z-index: 1;
   display: flex;
+  justify-content: center;
   border-radius: 8px 8px 0 0;
   border-bottom: 1px solid white;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.01);
@@ -17,28 +17,28 @@ export const Form = styled.form`
   `}
   ${media.greaterThan("large")`
   width: 50%;
-  padding: 1.5rem;
+  padding: 2rem 1rem;
   `}
 `;
 
 export const Input = styled.input`
   height: 2.3rem;
-  width: 80%;
+  width: 76%;
   border-radius: 6px 0 0 6px;
   border: 1px solid #c1c0c0;
   padding: 0 0 0 0.5rem;
   color: #fe4370;
-  font-size: small;
+  font-size: 1.05rem;
   font-family: "Montserrat Alternates", sans-serif;
   &::placeholder {
     color: #fd7294;
-    font-size: small;
+    font-size: 1.05rem;
   }
   ${media.greaterThan("medium")`
-    height: 3rem;
-    font-size: large;
+    height: 4rem;
+    font-size: x-large;
     &::placeholder {
-      font-size: large;
+      font-size: x-large;
     }
   `}
 `;
@@ -53,7 +53,7 @@ export const Button = styled.button`
   color: #fff;
   font-weight: 600;
   ${media.greaterThan("medium")`
-    height: 3rem;
-    font-size: large;
+    height: 4rem;
+    font-size: x-large;
   `}
 `;
