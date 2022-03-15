@@ -4,11 +4,11 @@ import TodoItem from "../TodoItem/TodoItem";
 import { Container } from "./styles";
 
 const TodoList = () => {
-  const { tasks } = useContext(TodoContext);
+  const { getTasks } = useContext(TodoContext);
 
   return (
     <Container>
-      {tasks.map((task) => (
+      {getTasks().map((task) => (
         <TodoItem task={task} key={task.id} />
       ))}
     </Container>
