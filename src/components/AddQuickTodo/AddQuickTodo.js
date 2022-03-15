@@ -5,7 +5,7 @@ import { Form, Input, Button } from "./styles";
 
 const AddQuickTodo = () => {
   const [task, setTask] = useState("");
-  const { handleAddTask } = useContext(TodoContext);
+  const { addTask } = useContext(TodoContext);
 
   return (
     <Form>
@@ -18,7 +18,7 @@ const AddQuickTodo = () => {
       <Button
         onClick={(e) => {
           e.preventDefault();
-          handleAddTask(task);
+          addTask(task);
           setTask("");
         }}
       >
