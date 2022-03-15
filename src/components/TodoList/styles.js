@@ -2,7 +2,7 @@ import styled from "styled-components";
 import media from "styled-media-query";
 
 export const Container = styled.div`
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   background: #fff;
   width: 88%;
   margin: 0 0 8rem 0;

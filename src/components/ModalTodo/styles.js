@@ -9,13 +9,13 @@ export const Container = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-  display: ${({isModalVisible}) => isModalVisible ? 'flex' : 'none'}
+  display: ${({ isModalVisible }) => (isModalVisible ? "flex" : "none")};
 `;
 
 export const Content = styled.div`
   position: fixed;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -69,17 +69,16 @@ export const DescriptionTask = styled.textarea`
 
 export const BtnsStatusTask = styled.div`
   width: 100%;
-  //background: blue;
   display: flex;
   button {
     flex-grow: 1;
     height: 2.2rem;
-    border-radius: 6px;
+    border-radius: 8px;
     margin: 0.8rem 0.2rem 1.1rem;
     color: #fff;
     font-weight: 600;
     border: none;
-    &::disable{
+    &::disable {
       background: red;
     }
   }
@@ -92,7 +91,7 @@ export const ButtonSave = styled.div`
   margin: 0 0 1rem 0;
   button {
     background: #fe4370;
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
     padding: 1rem 1.5rem;
     color: #fff;
@@ -100,15 +99,14 @@ export const ButtonSave = styled.div`
   }
 `;
 
-
 export const DoButton = styled.button`
-background: ${({doStatus}) => doStatus ? "#ff6d54" : 'gray'};
-`
+  background: ${({ doStatus }) => (doStatus ? "#ff6d54" : "gray")};
+`;
 
 export const DoingButton = styled.button`
-  background: ${({doingStatus}) => doingStatus ? "#00c2ea" : 'gray'};
-`
+  background: ${({ doingStatus }) => (doingStatus ? "#00c2ea" : "gray")};
+`;
 
 export const DoneButton = styled.button`
-background: ${({doneStatus}) => doneStatus ? "#00de3d" : 'gray'};
-`
+  background: ${({ doneStatus }) => (doneStatus ? "#00de3d" : "gray")};
+`;

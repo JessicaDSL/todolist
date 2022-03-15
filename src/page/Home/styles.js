@@ -10,7 +10,7 @@ export const Background = styled.div`
 `;
 
 export const Container = styled.div`
-  background: #fff;
+  background: #f6f6f6;
   width: 88%;
   border-radius: 0 0 8px 8px;
   display: flex;
@@ -18,7 +18,6 @@ export const Container = styled.div`
   justify-content: center;
   span {
     border-radius: 0 0 8px 8px;
-    background: #f6f6f6;
     width: 96%;
     display: flex;
     align-items: center;

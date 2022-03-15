@@ -3,17 +3,19 @@ import media from "styled-media-query";
 
 export const Container = styled.div`
   display: flex;
+  padding: 0.5rem 0;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   margin: 0rem 0;
+  color: #fe4370;
   border-bottom: 1px solid #cecece;
   &:last-child {
     border: none;
   }
   ${media.greaterThan("large")`
-  padding: 1rem;
+  padding: 1.5rem 2rem 2rem 2rem;
   `}
 `;
 
@@ -24,21 +26,32 @@ export const DescriptionTask = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0rem 0;
-  margin: .7rem 0 .9rem 0;
-  div{
+  margin: 0.7rem 0 0.9rem 0;
+  div {
     display: flex;
   }
   span {
-    font-size: small;
+    font-size: 0.75rem;
+    color: #fd93ad;
   }
   button {
     background: #fd7294;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     color: #fff;
-    padding: .5rem .5rem;
-    margin: 0 0 0 .2rem;
+    padding: 0.5rem 0.5rem;
+    margin: 0 0 0 0.2rem;
   }
+  ${media.greaterThan("large")`
+  span {
+    font-size: large;
+  }
+  button {
+    padding: 1rem 1rem;
+    margin: 0 0 0 .2rem;
+    font-size: large;
+  }
+  `}
 `;
 
 export const Task = styled.div`
@@ -46,6 +59,10 @@ export const Task = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  ${media.greaterThan("large")`
+    font-size: x-large;
+    margin: 0 0 1rem 0;
+  `}
 `;
 
 export const Button = styled.button`
@@ -64,14 +81,16 @@ export const Button = styled.button`
   }
   ${media.greaterThan("large")`
     height: 3rem;
-    font-size: large;
+    svg {
+      font-size: xx-large;
+    }
   `}
 `;
 
 export const TitleTask = styled.textarea`
   display: flex;
   max-height: 200px;
-  margin: .8rem 0 0 0;
+  margin: 0.8rem 0 0 0;
   overflow-y: auto;
   justify-content: flex-start;
   align-items: center;
@@ -83,4 +102,3 @@ export const TitleTask = styled.textarea`
   border: none;
   font-family: "Montserrat Alternates", sans-serif;
 `;
-
