@@ -1,19 +1,19 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { TodoContext } from "../../Context";
 import { TodoModalContext } from "../../Context/TodoModalProvider";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import { Container, Task, DescriptionTask, TitleTask, Button } from "./styles";
+import { Container, Task, DescriptionTask, Button } from "./styles";
 
 const TodoItem = ({ task }) => {
-  const { handleDeleteTask, tasks } = useContext(TodoContext);
-  const { openModal, selectedTasks, setState, state } =
-    useContext(TodoModalContext);
+  const { deleteTask } = useContext(TodoContext);
+  const { openModal } = useContext(TodoModalContext);
 
   const [openDescriptionBox, setOpenDescriptionBox] = useState(false);
+
   return (
     <Container>
       <Task>
-          {task.title}
+        {task.title}
         <Button
           onClick={() =>
             openDescriptionBox
@@ -35,7 +35,7 @@ const TodoItem = ({ task }) => {
             EDIT
           </button>
           <button
-            onClick={() => handleDeleteTask(task.id)}
+            onClick={() => deleteTask(task.id)}
             style={{ backgroundColor: "#fe4370" }}
           >
             DELETE
