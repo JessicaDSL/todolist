@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   position: fixed;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -69,12 +69,11 @@ export const DescriptionTask = styled.textarea`
 
 export const BtnsStatusTask = styled.div`
   width: 100%;
-  //background: blue;
   display: flex;
   button {
     flex-grow: 1;
     height: 2.2rem;
-    border-radius: 6px;
+    border-radius: 8px;
     margin: 0.8rem 0.2rem 1.1rem;
     color: #fff;
     font-weight: 600;
@@ -92,7 +91,7 @@ export const ButtonSave = styled.div`
   margin: 0 0 1rem 0;
   button {
     background: #fe4370;
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
     padding: 1rem 1.5rem;
     color: #fff;
