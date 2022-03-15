@@ -8,7 +8,7 @@ export const Form = styled.form`
   display: flex;
   justify-content: center;
   border-radius: 8px 8px 0 0;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #dedede;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.01);
   -webkit-box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.01);
   -moz-box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.01);
@@ -36,9 +36,9 @@ export const Input = styled.input`
   }
   ${media.greaterThan("medium")`
     height: 4rem;
-    font-size: x-large;
+    font-size: large;
     &::placeholder {
-      font-size: x-large;
+      font-size: large;
     }
   `}
 `;
@@ -54,6 +54,6 @@ export const Button = styled.button`
   font-weight: 600;
   ${media.greaterThan("medium")`
     height: 4rem;
-    font-size: x-large;
+    font-size: large;
   `}
 `;
