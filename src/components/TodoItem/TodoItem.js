@@ -10,7 +10,6 @@ const TodoItem = ({ task }) => {
 
   const [openDescriptionBox, setOpenDescriptionBox] = useState(false);
 
-  console.log(task)
   return (
     <Container>
       <Task>
