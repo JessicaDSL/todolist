@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import CancelIcon from "@material-ui/icons/Cancel";
 
 import {
@@ -15,6 +15,7 @@ import {
   DoneButton,
 } from "./styles";
 import { TodoModalContext } from "../../Context/TodoModalProvider";
+import { TodoContext } from "../../Context";
 
 const ModalTodo = () => {
   const {
@@ -23,13 +24,13 @@ const ModalTodo = () => {
     selectedTasks,
     handleTitleModal,
     handleDescriptionModal,
-    handleUpDateTask,
+    addStatusTodo,
+    doStatus,
+    doingStatus,
+    doneStatus,
   } = useContext(TodoModalContext);
 
-  const [taskStatus, setTaskStatus] = useState("");
-  const [doStatus, setDoStatus] = useState(false);
-  const [doingStatus, setDoingStatus] = useState(false);
-  const [doneStatus, setDoneStatus] = useState(false);
+  const { updateTask } = useContext(TodoContext);
 
   const handleOutSideClick = (e) => {
     if (e.target.id === id) closeModal();
@@ -64,7 +65,9 @@ const ModalTodo = () => {
             </DescriptionTask>
             <BtnsStatusTask>
               <DoButton
-                onClick={() => setTaskStatus("do")}
+                onClick={() => {
+                  addStatusTodo("do");
+                }}
                 doStatus={doStatus}
                 type="button"
               >
@@ -72,14 +75,18 @@ const ModalTodo = () => {
               </DoButton>
               <DoingButton
                 type="button"
-                onClick={() => setTaskStatus("doing")}
+                onClick={() => {
+                  addStatusTodo("doing");
+                }}
                 doingStatus={doingStatus}
               >
                 DOING!
               </DoingButton>
               <DoneButton
                 type="button"
-                onClick={() => setTaskStatus("done")}
+                onClick={() => {
+                  addStatusTodo("done");
+                }}
                 doneStatus={doneStatus}
               >
                 DONE!
@@ -89,7 +96,8 @@ const ModalTodo = () => {
               <button
                 type="button"
                 onClick={() => {
-                  handleUpDateTask(selectedTasks);
+                  updateTask(selectedTasks);
+                  closeModal();
                 }}
               >
                 Save Changes!
