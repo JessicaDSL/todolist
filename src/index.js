@@ -5,7 +5,7 @@ import { TodoProvider } from "./Context";
 import { TodoModalProvider } from "./Context/TodoModalProvider";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode basename={process.env.PUBLIC_URL}>
     <TodoProvider>
       <TodoModalProvider>
         <App />
